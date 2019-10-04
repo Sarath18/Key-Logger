@@ -32,11 +32,11 @@ while line:
         else:
             if upperCase:
                 if((key >= 10 and key <= 21) or key == 34 or key == 35 or key == 47 or key == 48 or key == 51 or key == 59 or key == 60 or key == 61):
-                    message += read_val(symbols, key) #symbols[key]
+                    message += read_val(symbols, key)
                 else:
-                    message += read_val(keymap, key)# keymap[key].upper()
+                    message += read_val(keymap, key).upper()
             else:
-                message += read_val(keymap, key) #keymap[key]
+                message += read_val(keymap, key)
 
     elif(x[1] == "release"):
         if key == 50 or key == 62:
