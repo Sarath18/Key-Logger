@@ -23,4 +23,4 @@ Select the **keyboard ID** from the list shown, which you want to log.
 
 **Parse key-log**
 
-    python3 parser.py
+    python3 parser.py <log_file>
