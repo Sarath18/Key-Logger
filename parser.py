@@ -14,29 +14,23 @@ line = f.readline()
 message = ""
 upperCase = False
 
-def read_val(map_dict, key):
-    try:
-        return map_dict[key]
-    except:
-        return ''
-
 while line:
     line = line.strip()
     x = line.split(" ")
     key = int(x[len(x)-1])
     if(x[1] == "press"):
-        if key == 66 or key == 50 or key == 62:
+        if key in [66,50,62]:
             upperCase = not upperCase
         elif key == 22:
             message = message[:-1]
         else:
             if upperCase:
-                if((key >= 10 and key <= 21) or key == 34 or key == 35 or key == 47 or key == 48 or key == 51 or key == 59 or key == 60 or key == 61):
-                    message += read_val(symbols, key)
+                if (key >= 10 and key <= 21) or (key in [34,35,47,48,51,59,60,61]):
+                    message += symbols.get(key,'')
                 else:
-                    message += read_val(keymap, key).upper()
+                    message += keymap.get(key,'').upper()
             else:
-                message += read_val(keymap, key)
+                message += keymap.get(key,'')
 
     elif(x[1] == "release"):
         if key == 50 or key == 62:
